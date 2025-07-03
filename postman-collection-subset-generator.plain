@@ -12,7 +12,7 @@
 
 - The Postman Subset should have the same ordering of keys as The Postman Collection.
 
-- The resource [postman_json_schema.json](postman_json_schema.json) contains the JSON Schema for The Postman Collection.
+- The resource [postman_json_schema.json](file-docs/postman_json_schema.json) contains the JSON Schema for The Postman Collection.
 
 ***Non-Functional Requirements:***
 
@@ -22,7 +22,7 @@
 
 ***Test Requirements:***
 
-- The resource [wrike_postman_example.json](wrike_postman_example.json) contains example of The Postman Collection that can be used for testing. If adding it to The Conformance Tests, store it in a separate JSON file.
+- The resource [wrike_postman_example.json](file-docs/wrike_postman_example.json) contains example of The Postman Collection that can be used for testing. If adding it to The Conformance Tests, store it in a separate JSON file.
 
 ## Extend The App CLI
 
@@ -38,7 +38,7 @@
 
 - The Postman Folder is a folder in The Postman Collection. The Postman Folder is a dictionary with the following keys: "name" (str), "item" (list of dictionaries). 
 
-- The Whitelisted Folders is a list The Postman Folders that should be included in The Postman Subset. The resource [whitelisted-folders.json](whitelisted-folders.json) contains the list of The Postman Folders. If using the resource, store it in a separate JSON file.
+- The Whitelisted Folders is a list The Postman Folders that should be included in The Postman Subset. The resource [whitelisted-folders.json](file-docs/whitelisted-folders.json) contains the list of The Postman Folders. If using the resource, store it in a separate JSON file.
 
 ***Functional Requirements:***
 
@@ -50,4 +50,4 @@
 
   ***Acceptance Tests:***
 
-  - If "--whitelist-folders" is used with file [whitelisted-folders.json](whitelisted-folders.json) for input file [wrike_postman_example.json](wrike_postman_example.json), there should be no item named "Comments", but there should be an item named "Attachments". The output of the file should match contents of [wrike_postman_example_condensed.json](wrike_postman_example_condensed.json). If using the resource, store it in a separate JSON file.
+  - If "--whitelist-folders" is used with file [whitelisted-folders.json](file-docs/whitelisted-folders.json) for input file [wrike_postman_example.json](file-docs/wrike_postman_example.json), there should be no item named "Comments", but there should be an item named "Attachments". The output of the file should match contents of [wrike_postman_example_condensed.json](file-docs/wrike_postman_example_condensed.json). If using the resource, store it in a separate JSON file.
