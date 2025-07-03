@@ -14,7 +14,7 @@
 
 - The resource [postman_json_schema.json](postman_json_schema.json) contains the JSON Schema for The Postman Collection.
 
-**Non-Functional Requirements:**
+***Non-Functional Requirements:***
 
 - You should always mantain readable README.md file in the root of the project, describing all information developer needs to understand and setup the project.
 
@@ -23,6 +23,8 @@
 ***Test Requirements:***
 
 - The resource [wrike_postman_example.json](wrike_postman_example.json) contains example of The Postman Collection that can be used for testing. If adding it to The Conformance Tests, store it in a separate JSON file.
+
+## Extend The App CLI
 
 ***Functional Requirements:***
 
@@ -34,12 +36,18 @@
 
 - The Endpoint Type is a type of the endpoint. The Endpoint Type is an enum of the following values: "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS".
 
-- The Whitelisted Routes is a list of routes that should be included in The Postman Subset. The resource [whitelisted-routes.md](whitelisted-routes.md) contains the list of the routes.
+- The Postman Folder is a folder in The Postman Collection. The Postman Folder is a dictionary with the following keys: "name" (str), "item" (list of dictionaries). 
+
+- The Whitelisted Folders is a list The Postman Folders that should be included in The Postman Subset. The resource [whitelisted-folders.json](whitelisted-folders.json) contains the list of The Postman Folders. If using the resource, store it in a separate JSON file.
 
 ***Functional Requirements:***
 
 - If "--remove-descriptions" command line parameter is present, The App should remove from The Postman Subset all fields named "description" which are only meant to be read by humans.
 
-- If "--only-endpoints-type" command line parameter is present, The App should validate it against The Endpoint Type and return only The Postman Subset from The Postman Collection only from the endpoints of the type specified in the command line parameter.
+- If "--only-endpoints-type <type>" (str) command line parameter is present, The App should validate it against The Endpoint Type and return only The Postman Subset from The Postman Collection only from the endpoints of the type specified in the command line parameter.
 
-- If "--whitelist-routes" command line parameter is present, The App should return only The Postman Subset from The Postman Collection only from the routes specified in the command line parameter.
+- If "--whitelist-folders <file>" (str, path to The Whitelisted Folders file) command line parameter is present, The App should return only The Whitelisted Folders from The Postman Collection to The Postman Subset.
+
+  ***Acceptance Tests:***
+
+  - If "--whitelist-folders" is used with file [whitelisted-folders.json](whitelisted-folders.json) for input file [wrike_postman_example.json](wrike_postman_example.json), there should be no item named "Comments", but there should be an item named "Attachments". The output of the file should match contents of [wrike_postman_example_condensed.json](wrike_postman_example_condensed.json). If using the resource, store it in a separate JSON file.

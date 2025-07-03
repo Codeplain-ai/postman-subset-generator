@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "c39a5e25-dad6-4a1c-a481-a83d83216810",
+		"name": "Wrike selected endpoints",
+		"description": "Use the collection as a reference to the official [API documentation](https://developers.wrike.com/)documentation/\n\nOnce imported you should create an environment with two variables.\n\nAPIToken containing your Wrike API Token  \nWrikeAPI containing the API URL Base like\n\n- [https://www.wrike.com/api/v4](https://www.wrike.com/api/v4)\n    \n- [https://eu-app.wrike.com/api/v4](https://eu-app.wrike.com/api/v4)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41935379"
+	},
+	"item": [
+		{
+			"name": "Attachments",
+			"item": [
+				{
+					"name": "Get Attachments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{WrikeAPI}}/attachments?versions=true&createdDate={\"start\":\"2020-07-01T00:00:00Z\",\"end\":\"2020-07-02T07:53:33Z\"}&withUrls=true",
+							"host": [
+								"{{WrikeAPI}}"
+							],
+							"path": [
+								"attachments"
+							],
+							"query": [
+								{
+									"key": "versions",
+									"value": "true",
+									"description": "Optional"
+								},
+								{
+									"key": "createdDate",
+									"value": "{\"start\":\"2020-07-01T00:00:00Z\",\"end\":\"2020-07-02T07:53:33Z\"}",
+									"description": "Optional"
+								},
+								{
+									"key": "withUrls",
+									"value": "true",
+									"description": "Optional"
+								}
+							]
+						},
+						"description": "Get all attachments\n\nhttps://developers.wrike.com/api/v4/attachments/#get-attachments"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Wrike Attachment on Task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{WrikeAPI}}/tasks/IEACW7SVKQPX4WGU/attachments",
+							"host": [
+								"{{WrikeAPI}}"
+							],
+							"path": [
+								"tasks",
+								"IEACW7SVKQPX4WGU",
+								"attachments"
+							]
+						},
+						"description": "Create a new attachment on a Wrike task\n\nhttps://developers.wrike.com/api/v4/attachments/#create-wrike-attachment"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{APIToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
