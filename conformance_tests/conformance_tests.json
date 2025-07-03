@@ -1,0 +1,25 @@
+{
+    "1.1": {
+        "functional_requirement": "- Implement the entry point for The App.",
+        "folder_name": "conformance_tests/src"
+    },
+    "2.1.1": {
+        "functional_requirement": "- The App should be extended to take \"--input-file\" (the name of the file containing The Postman Collection) and \"--output-file\" (the name of the file to store The Postman Subset) command line parameters as positional arguments. The App should read The Postman Collection from the file specified by \"--input-file\" and store The Postman Subset to the file specified by \"--output-file\".",
+        "folder_name": "conformance_tests/io"
+    },
+    "2.2.1": {
+        "functional_requirement": "- If \"--remove-descriptions\" command line parameter is present, The App should remove from The Postman Subset all fields named \"description\" which are only meant to be read by humans.",
+        "folder_name": "conformance_tests/cli"
+    },
+    "2.2.2": {
+        "functional_requirement": "- If \"--only-endpoints-type <type>\" (str) command line parameter is present, The App should validate it against The Endpoint Type and return only The Postman Subset from The Postman Collection only from the endpoints of the type specified in the command line parameter.",
+        "folder_name": "conformance_tests/postman_filters"
+    },
+    "2.2.3": {
+        "functional_requirement": "- If \"--whitelist-folders <file>\" (str, path to The Whitelisted Folders file) command line parameter is present, The App should return only The Whitelisted Folders from The Postman Collection to The Postman Subset.",
+        "folder_name": "conformance_tests/postman_whitelist",
+        "acceptance_tests": [
+            "- If \"--whitelist-routes\" is used with file `[resource]whitelisted-folders.json` for input file `[resource]wrike_postman_example.json`, there should be no item named \"Comments\", but there should be an item named \"Attachments\". The output of the file should match contents of `[resource]wrike_postman_example_condensed.json`. If using the resource, store it in a separate JSON file."
+        ]
+    }
+}

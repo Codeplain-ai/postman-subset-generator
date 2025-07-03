@@ -1,0 +1,2 @@
+# No external dependencies required
+# This file exists to satisfy the test runner
