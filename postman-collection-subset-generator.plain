@@ -1,0 +1,45 @@
+{% include "python-console-app-template.plain", main_executable_file_name: "generate_postman_collection_subset.py" %}
+
+#  The OpenAPI Spec Subset Generator
+
+***Definitions:***
+
+- The API is a REST API.
+
+- The Postman Collection is a JSON file that contains the full Postman Collection specification of The API.
+
+- The Postman Subset contains the subset of The Postman Collection. Inititally, The Postman Subset contains complete The Postman Collection.
+
+- The Postman Subset should have the same ordering of keys as The Postman Collection.
+
+- The resource [postman_json_schema.json](postman_json_schema.json) contains the JSON Schema for The Postman Collection.
+
+**Non-Functional Requirements:**
+
+- You should always mantain readable README.md file in the root of the project, describing all information developer needs to understand and setup the project.
+
+- The App should use "requirements.txt" file to install the dependencies.
+
+***Test Requirements:***
+
+- The resource [wrike_postman_example.json](wrike_postman_example.json) contains example of The Postman Collection that can be used for testing. If adding it to The Conformance Tests, store it in a separate JSON file.
+
+***Functional Requirements:***
+
+- The App should be extended to take "--input-file" (the name of the file containing The Postman Collection) and "--output-file" (the name of the file to store The Postman Subset) command line parameters as positional arguments. The App should read The Postman Collection from the file specified by "--input-file" and store The Postman Subset to the file specified by "--output-file".
+
+## The Postman Collection Subset Generator
+
+***Definitions:***
+
+- The Endpoint Type is a type of the endpoint. The Endpoint Type is an enum of the following values: "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS".
+
+- The Whitelisted Routes is a list of routes that should be included in The Postman Subset. The resource [whitelisted-routes.md](whitelisted-routes.md) contains the list of the routes.
+
+***Functional Requirements:***
+
+- If "--remove-descriptions" command line parameter is present, The App should remove from The Postman Subset all fields named "description" which are only meant to be read by humans.
+
+- If "--only-endpoints-type" command line parameter is present, The App should validate it against The Endpoint Type and return only The Postman Subset from The Postman Collection only from the endpoints of the type specified in the command line parameter.
+
+- If "--whitelist-routes" command line parameter is present, The App should return only The Postman Subset from The Postman Collection only from the routes specified in the command line parameter.
